@@ -1,0 +1,23 @@
+RewriteEngine On
+
+# Remove .php extension
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+# Custom 404
+ErrorDocument 404 /liam/404.php
+
+# Security
+Options -Indexes
+ServerSignature Off
+
+# Cache Control
+<FilesMatch "\.(css|js|jpg|jpeg|png|gif|ico|woff|woff2)$">
+    Header set Cache-Control "max-age=2592000, public"
+</FilesMatch>
+
+# Compress
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json
+</IfModule>

@@ -1,0 +1,9 @@
+*.log
+*.tmp
+.env
+.DS_Store
+Thumbs.db
+node_modules/
+vendor/
+smtp_schema.sql
+page_content_schema.txt
