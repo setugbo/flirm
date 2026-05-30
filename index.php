@@ -136,8 +136,8 @@ $socials = getSocialMedia();
                 <h2><?= htmlspecialchars($partner['name'] ?? 'Onyemaechi Harris Basil') ?></h2>
                 <div class="partner-role"><?= htmlspecialchars($partner['title'] ?? 'Managing Partner') ?></div>
                 <div class="title-line"></div>
-                <p class="partner-bio"><?= nl2br(htmlspecialchars($partner['bio'] ?? '')) ?></p>
-                <a href="managing-partner.php" class="btn btn-outline-light" style="margin-top:24px;">Full Profile <i class="fas fa-arrow-right"></i></a>
+                <p class="partner-bio" style="font-size:.95rem;line-height:1.8;color:var(--dark-gray);"><?= htmlspecialchars(explode("\n\n", $partner['bio'] ?? '')[0]) ?></p>
+                <a href="managing-partner.php" class="btn btn-outline-light" style="margin-top:24px;">View Full Profile <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
     </div>

@@ -34,7 +34,7 @@
                     <h3 class="attorney-name"><?= htmlspecialchars($partner['name'] ?? '') ?></h3>
                     <div class="attorney-title"><?= htmlspecialchars($partner['title'] ?? 'Managing Partner') ?></div>
                     <div class="attorney-badge">Managing Partner</div>
-                    <div class="attorney-bio-full"><?= nl2br(htmlspecialchars($partner['bio'] ?? '')) ?></div>
+                    <p style="font-size:.9rem;line-height:1.7;color:var(--dark-gray);margin-top:8px;"><?= htmlspecialchars(explode("\n\n", $partner['bio'] ?? '')[0]) ?></p>
                     <a href="<?= SITE_URL ?>managing-partner.php" class="attorney-readmore" style="display:inline-block;margin-top:12px;">View Full Profile →</a>
                 </div>
             </div>
