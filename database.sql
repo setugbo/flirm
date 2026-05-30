@@ -23,6 +23,12 @@ CREATE TABLE site_settings (
     favicon_url VARCHAR(255) DEFAULT 'assets/images/favicon.ico',
     footer_text TEXT,
     copyright_text VARCHAR(255) DEFAULT '© 2026 FLIRM SOLICITORS. All Rights Reserved.',
+    smtp_host VARCHAR(255) DEFAULT NULL,
+    smtp_port VARCHAR(10) DEFAULT NULL,
+    smtp_username VARCHAR(255) DEFAULT NULL,
+    smtp_password VARCHAR(255) DEFAULT NULL,
+    smtp_from_email VARCHAR(255) DEFAULT NULL,
+    smtp_from_name VARCHAR(255) DEFAULT NULL,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -148,8 +154,29 @@ CREATE TABLE footer_content (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- Page Content (NDPR, Privacy Policy, Whistleblowing, etc.)
+CREATE TABLE page_content (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    page_key VARCHAR(100) NOT NULL UNIQUE,
+    title VARCHAR(255) NOT NULL,
+    content TEXT,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Attorneys
+CREATE TABLE attorneys (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    title VARCHAR(255) NOT NULL,
+    short_bio TEXT,
+    bio TEXT,
+    image_url VARCHAR(255),
+    display_order INT DEFAULT 0,
+    is_active TINYINT(1) DEFAULT 1,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 -- Contact Messages
-CREATE TABLE contact_messages (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL,
@@ -165,8 +192,8 @@ INSERT INTO admin_users (username, password, email) VALUES
 ('flirm', '$2y$10$7oDSzf2bHYYdeSLNdB4DvOra/wdP.JwVVhzyzy5ZGu0q5IZraeQXe', 'admin@flirm.com.ng');
 
 -- Insert Default Data
-INSERT INTO site_settings (id, site_name, site_tagline, footer_text, copyright_text) VALUES
-(1, 'FLIRM SOLICITORS', 'Professional Legal Services Rooted in Integrity, Excellence & Results', 'Professional Legal Services You Can Trust.', '© 2026 FLIRM SOLICITORS. All Rights Reserved.');
+INSERT INTO site_settings (id, site_name, site_tagline, footer_text, copyright_text, smtp_host, smtp_port, smtp_username, smtp_password, smtp_from_email, smtp_from_name) VALUES
+(1, 'FLIRM SOLICITORS', 'Professional Legal Services Rooted in Integrity, Excellence & Results', 'Professional Legal Services You Can Trust.', '© 2026 FLIRM SOLICITORS. All Rights Reserved.', 'mail.flirm.com.ng', '465', 'info@flirm.com.ng', 'Francisca2009', 'info@flirm.com.ng', 'FLIRM SOLICITORS');
 
 INSERT INTO hero_section (id, title, subtitle, description, managing_partner_name, address, email, phone) VALUES
 (1, 'FLIRM SOLICITORS', 'Professional Legal Services Rooted in Integrity, Excellence & Results', 'At FLIRM SOLICITORS, we provide strategic legal solutions tailored to individuals, businesses, investors, and organizations. Our commitment is to deliver professional, reliable, and result-oriented legal representation with the highest ethical standards.', 'Managing Partner: Onyemaechi Harris Basil', 'No. 12 Oduyemi Street, Anifowoshe, Ikeja, Lagos', 'info@flirm.com.ng', '08037059291');
@@ -203,6 +230,17 @@ INSERT INTO consulting_section (id, company_name, tagline, content) VALUES
 
 INSERT INTO footer_content (id, about_text, address, email, phone, copyright_text) VALUES
 (1, 'Professional Legal Services You Can Trust.', 'Ikeja, Lagos, Nigeria', 'info@flirm.com.ng', '08037059291', '© 2026 FLIRM SOLICITORS. All Rights Reserved.');
+
+INSERT INTO page_content (page_key, title, content) VALUES
+('ndpr-compliance', 'NDPR Compliance', '<h2>Our Commitment to Data Protection</h2><p>FLIRM SOLICITORS is committed to protecting the privacy and personal data of our clients, employees, and stakeholders in full compliance with the Nigeria Data Protection Regulation (NDPR).</p><h3>Data Protection Principles</h3><p>We adhere to the following principles: (1) Lawful, fair, and transparent processing; (2) Purpose limitation; (3) Data minimization; (4) Accuracy; (5) Storage limitation; (6) Integrity and confidentiality; (7) Accountability.</p><h3>Your Rights Under NDPR</h3><p>As a data subject, you have the right to: request access to your personal data; request correction of inaccurate data; request deletion of your data; restrict processing; data portability; object to processing; and withdraw consent at any time.</p><h3>Data Protection Officer</h3><p>Our Data Protection Officer oversees compliance with NDPR requirements. For inquiries, contact our DPO at info@flirm.com.ng.</p>'),
+('privacy-policy', 'Privacy Policy', '<h2>Introduction</h2><p>FLIRM SOLICITORS respects your privacy and is committed to protecting your personal data. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.</p><h3>Information We Collect</h3><p>We may collect personal identification information (name, email address, phone number) and usage data (browser type, pages visited, time spent).</p><h3>How We Use Your Information</h3><p>We use collected data to provide legal services, respond to inquiries, improve our website, send relevant communications, and comply with legal obligations.</p><h3>Data Retention</h3><p>We retain personal data only as long as necessary for the purposes outlined in this policy, or as required by law.</p><h3>Third-Party Disclosure</h3><p>We do not sell, trade, or transfer your personal information to third parties without your consent, except as required by law.</p><h3>Contact</h3><p>For questions about this Privacy Policy, contact us at info@flirm.com.ng.</p>'),
+('whistleblowing', 'Whistleblowing Policy', '<h2>Whistleblowing Policy</h2><p>FLIRM SOLICITORS is committed to the highest standards of integrity, transparency, and accountability. Our Whistleblowing Policy provides a framework for individuals to raise genuine concerns about misconduct or malpractice.</p><h3>What to Report</h3><p>Concerns may include: financial irregularities, fraud, corruption, unethical conduct, breach of legal obligations, health and safety violations, environmental damage, or any other serious wrongdoing.</p><h3>How to Report</h3><p>Reports can be made in confidence via email to info@flirm.com.ng or through our dedicated reporting channel. Anonymous reports are accepted and will be investigated thoroughly.</p><h3>Protection for Whistleblowers</h3><p>FLIRM SOLICITORS will not tolerate any form of retaliation against individuals who raise genuine concerns in good faith. All reports will be treated confidentially and investigated impartially.</p><h3>Reporting Channel</h3><p>For whistleblowing reports, contact: info@flirm.com.ng.</p>');
+
+INSERT INTO attorneys (name, title, short_bio, bio, display_order) VALUES
+('Chidi Okonkwo', 'Senior Associate', 'A seasoned litigator with over a decade of experience in civil and commercial litigation, dispute resolution, and arbitration.', 'Chidi Okonkwo is a Senior Associate at FLIRM SOLICITORS with extensive experience in civil litigation, commercial dispute resolution, and arbitration. He has represented clients across various industries including banking, insurance, and telecommunications. Chidi holds an LL.M from the University of Lagos and is a member of the Nigerian Bar Association and the Chartered Institute of Arbitrators (UK). He is known for his meticulous preparation and persuasive advocacy.', 1),
+('Amara Nwachukwu', 'Associate, Intellectual Property', 'Specializing in intellectual property law, technology transactions, and data protection compliance.', 'Amara Nwachukwu is an Associate specializing in Intellectual Property and Technology Law. She advises clients on patent filings, trademark registration, copyright protection, and technology licensing agreements. Amara is also a certified data protection officer and assists clients with NDPR compliance. She holds a first-class degree from the University of Ibadan and is a regular speaker at IP law conferences.', 2),
+('Emeka Okafor', 'Associate, Real Estate & Property', 'Practicing in real estate transactions, property law, land documentation, and due diligence.', 'Emeka Okafor is an Associate in the Real Estate and Property Practice Group. He handles property acquisitions, title searches, land documentation, lease agreements, and real estate due diligence for corporate and individual clients. Emeka''s deep understanding of land law across multiple Nigerian states makes him a valuable asset for clients navigating complex property transactions. He is admitted to the Nigerian Bar and holds an LL.B from the University of Benin.', 3),
+('Yetunde Bamidele', 'Associate, Family Law', 'Focused on family law, matrimonial causes, child welfare, and alternative dispute resolution.', 'Yetunde Bamidele is an Associate practicing in Family Law and Alternative Dispute Resolution. She handles matrimonial causes, child custody arrangements, adoption proceedings, and mediation services. Yetunde is passionate about protecting the rights of children and vulnerable individuals. She is a trained mediator and member of the International Bar Association. She holds an LL.M in Human Rights Law from the University of Lagos.', 4);
 
 INSERT INTO social_media (platform, url, icon_class, display_order) VALUES
 ('Facebook', '#', 'fa-facebook-f', 1),
