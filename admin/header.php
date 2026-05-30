@@ -33,6 +33,9 @@ $current_page = basename($_SERVER['PHP_SELF'], '.php');
             <a href="practice-areas.php" class="<?= $current_page == 'practice-areas' ? 'active' : '' ?>">
                 <i class="fas fa-briefcase"></i> <span>Practice Areas</span>
             </a>
+            <a href="attorneys.php" class="<?= $current_page == 'attorneys' || $current_page == 'attorneys-form' ? 'active' : '' ?>">
+                <i class="fas fa-users"></i> <span>Our Attorneys</span>
+            </a>
             <a href="managing-partner.php" class="<?= $current_page == 'managing-partner' ? 'active' : '' ?>">
                 <i class="fas fa-user-tie"></i> <span>Managing Partner</span>
             </a>

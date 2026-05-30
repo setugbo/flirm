@@ -81,6 +81,7 @@ $recentMessages = $db->fetchAll("SELECT * FROM contact_messages ORDER BY created
             <a href="hero.php" style="padding:16px; background:#fafafa; border:1px solid var(--admin-border); text-align:center; font-weight:500;">Hero Section</a>
             <a href="about.php" style="padding:16px; background:#fafafa; border:1px solid var(--admin-border); text-align:center; font-weight:500;">About Us</a>
             <a href="practice-areas.php" style="padding:16px; background:#fafafa; border:1px solid var(--admin-border); text-align:center; font-weight:500;">Practice Areas</a>
+            <a href="attorneys.php" style="padding:16px; background:#fafafa; border:1px solid var(--admin-border); text-align:center; font-weight:500;">Our Attorneys</a>
             <a href="managing-partner.php" style="padding:16px; background:#fafafa; border:1px solid var(--admin-border); text-align:center; font-weight:500;">Managing Partner</a>
             <a href="mission.php" style="padding:16px; background:#fafafa; border:1px solid var(--admin-border); text-align:center; font-weight:500;">Mission & Vision</a>
             <a href="messages.php" style="padding:16px; background:#fafafa; border:1px solid var(--admin-border); text-align:center; font-weight:500;">View Messages</a>

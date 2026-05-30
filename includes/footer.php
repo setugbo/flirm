@@ -30,7 +30,7 @@ $contact = getContactInfo();
                         <li><a href="<?= SITE_URL ?>">Home</a></li>
                         <li><a href="<?= SITE_URL ?>about.php">About Us</a></li>
                         <li><a href="<?= SITE_URL ?>practice-areas.php">Practice Areas</a></li>
-                        <li><a href="<?= SITE_URL ?>managing-partner.php">Managing Partner</a></li>
+                        <li><a href="<?= SITE_URL ?>attorneys.php">Our Attorneys</a></li>
                         <li><a href="<?= SITE_URL ?>consulting.php">Consulting</a></li>
                         <li><a href="<?= SITE_URL ?>contact.php">Contact Us</a></li>
                     </ul>

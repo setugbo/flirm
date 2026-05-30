@@ -63,7 +63,7 @@ $current_page = basename($_SERVER['PHP_SELF'], '.php');
                         <li><a href="<?= SITE_URL ?>" class="<?= $current_page == 'index' ? 'active' : '' ?>">Home</a></li>
                         <li><a href="<?= SITE_URL ?>about.php" class="<?= $current_page == 'about' ? 'active' : '' ?>">About Us</a></li>
                         <li><a href="<?= SITE_URL ?>practice-areas.php" class="<?= $current_page == 'practice-areas' ? 'active' : '' ?>">Practice Areas</a></li>
-                        <li><a href="<?= SITE_URL ?>managing-partner.php" class="<?= $current_page == 'managing-partner' ? 'active' : '' ?>">Managing Partner</a></li>
+                        <li><a href="<?= SITE_URL ?>attorneys.php" class="<?= $current_page == 'attorneys' ? 'active' : '' ?>">Our Attorneys</a></li>
                         <li><a href="<?= SITE_URL ?>consulting.php" class="<?= $current_page == 'consulting' ? 'active' : '' ?>">Consulting</a></li>
                         <li><a href="<?= SITE_URL ?>contact.php" class="<?= $current_page == 'contact' ? 'active' : '' ?>">Contact</a></li>
                     </ul>

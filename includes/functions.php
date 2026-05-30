@@ -51,6 +51,10 @@ function getFooterContent() {
     return Database::getInstance()->fetchOne("SELECT * FROM footer_content WHERE id = 1");
 }
 
+function getAttorneys() {
+    return Database::getInstance()->fetchAll("SELECT * FROM attorneys WHERE is_active = 1 ORDER BY display_order ASC");
+}
+
 function getPageContent($key) {
     $db = Database::getInstance();
     return $db->fetchOne("SELECT * FROM page_content WHERE page_key = '" . $db->escape($key) . "' LIMIT 1");
@@ -67,6 +71,7 @@ function getPageTitle($page) {
         'ndpr-compliance' => 'NDPR Compliance | FLIRM SOLICITORS',
         'privacy-policy' => 'Privacy Policy | FLIRM SOLICITORS',
         'whistleblowing' => 'Whistleblowing Policy | FLIRM SOLICITORS',
+        'attorneys' => 'Our Attorneys | FLIRM SOLICITORS',
     ];
     return $titles[$page] ?? 'FLIRM SOLICITORS';
 }
