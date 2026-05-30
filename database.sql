@@ -202,37 +202,7 @@ INSERT INTO about_section (id, heading, content) VALUES
 (1, 'Who We Are', 'FLIRM SOLICITORS is a dynamic and client-focused law firm based in Ikeja, Lagos, Nigeria. We are dedicated to providing sound legal advisory, litigation support, corporate legal services, and dispute resolution solutions for clients across diverse sectors. Our firm combines professionalism, strategic thinking, and deep legal expertise to protect our clients'' interests while delivering practical legal solutions. We pride ourselves on integrity, confidentiality, diligence, and excellence in legal practice.');
 
 INSERT INTO managing_partner (id, name, title, bio) VALUES
-(1, 'Onyemaechi Harris Basil', 'Managing Partner', 'MANAGING PARTNER
-
-HARRIS BASIL ONYEMAECHI is an accomplished Corporate Attorney and Insurance Consultant with over 25 years of diverse experience spanning legal practice, regulatory compliance, and risk management. Called to the Nigerian Bar with a Master of Laws (LL.M) from the University of Lagos. Demonstrates a verified track record of driving corporate governance as a Legal advisor/ Company Secretary to numerous organizations, leading complex real estate and probate matters, and spearheading high-tier litigation. Combines deep legal expertise with over a decade of insurance and pension consulting leadership at a top-tier multinational firm.
-
-EDUCATION
-
-- Master of Laws (LL.M) | University of Lagos (UNILAG) | 2025
-- Barrister-at-Law (B.L) | Nigerian Law School | 2014
-- Bachelor of Laws (LL.B) | Lagos State University (LASU) | 2013
-- Diploma in Public Administration | Ambrose Alli University, Ekpoma | 2002
-
-PROFESSIONAL MEMBERSHIPS & CERTIFICATIONS
-
-- Member, Nigerian Bar Association (NBA)
-- Member, Chartered Insurance Institute of Nigeria (CIIN) (Certified Insurance Agent)
-- Member, Institute of Chartered Mediators and Conciliators (ICMC)
-- Member, Nigerian Institute of Public Relations (NIPR) (Certificate in Public Relations)
-- Member, Full Gospel Business Men''s Fellowship International (FGBMFI)
-
-AREAS OF PRACTICE:
-- Corporate and Commercial Law
-- Shipping/Admiralty Law
-- Oil & Gas Law
-- Property Law
-- Banking & Finance
-- Taxation
-- Criminal Law
-- Labour Law
-- Debt Recovery
-- Capital Market and Investment
-- Documentation and Perfection of Company Securities');
+(1, 'Onyemaechi Harris Basil', 'Managing Partner', 'Onyemaechi Harris Basil is an accomplished legal practitioner with extensive experience in corporate legal advisory, litigation, real estate transactions, regulatory compliance, and dispute resolution. As the Managing Partner of FLIRM SOLICITORS, he is committed to delivering exceptional legal services while upholding justice, professionalism, and client satisfaction. His leadership continues to position the firm as a trusted legal partner for individuals, businesses, and investors.');
 
 INSERT INTO practice_areas (title, short_description, services, icon_class, display_order) VALUES
 ('Corporate & Commercial Law', 'We provide legal support for businesses, startups, and corporate organizations.', 'Company registration|Corporate governance|Contract drafting and review|Regulatory compliance|Business advisory services', 'fa-briefcase', 1),
