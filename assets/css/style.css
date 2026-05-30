@@ -1542,3 +1542,10 @@ ul { list-style: none; }
   .attorney-card { flex-direction: column; align-items: center; text-align: center; }
   .attorney-img { width: 90px; height: 90px; }
 }
+
+/* ============================
+   Managing Partner Bio
+   ============================ */
+.partner-bio { font-size: .95rem; line-height: 1.8; color: var(--dark-gray); }
+.partner-bio strong { color: var(--black); font-weight: 700; }
+.attorney-bio-full strong { color: var(--black); font-weight: 700; }
